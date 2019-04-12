@@ -1,0 +1,20 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="margin-top:10%">
+    <div>
+        <h1 style="text-align:center; margin-top:10%">Featured Updates</h1>
+    </div>
+        
+    <div class="container">
+        {% for u in updates %}
+            <h2><a href="/get/{{u.name}}" style="color:black">{{ u.name }}</a></h2>
+            <h4>{{ u.message }}</h4>
+            <p><i class="fas fa-arrow-up"></i>{{ u.likes }}    <i class="far fa-star"></i> {{ u.superlikes }}</p>
+
+            <hr>
+        {% endfor %} 
+    </div>
+</div>
+{% endblock %}

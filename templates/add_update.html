@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+        <div class="container">
+            <div style="margin-top:10%" class="row align-items-center justify-content-center">
+                <h1>Add an update</h1>
+            </div>
+            <br>
+
+            <form method="POST">
+
+                <label for="name">Your Name</label>
+                <div class="form-row">
+                    <input class="form-control" type="text" placeholder="Your Name" id="name" name="name">
+                </div>
+                <br>
+                <div class="form-row ">
+                    <label for="message">Update Message</label>
+                    <textarea class="form-control" placeholder="Update" id="message" name="message"></textarea>
+                </div>
+                <br>
+                <button type="submit " class="btn btn-dark " style="float:right ">Submit</button>
+
+            </form>
+            <br><br>
+        </div>
+    </div>
+{% endblock %}
+

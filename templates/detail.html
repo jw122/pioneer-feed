@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="margin-top:10%; text-align: center">
+        <h1 style="text-align:center">{{ person }}'s Updates</h1>
+        <h3 style="text-align:center">Goals this week: </h3>
+        <p>{{ goal.goal }}</p>
+
+    </div>
+    <div class="container" style="margin-top:5%">
+
+
+    {% for u in updates %}
+        <h5>{{ u.message }}</h5>
+        <div style="margin-left:2%">
+            {% for comment in comments[u.id] %}
+                <p style="margin:0px"><b>{{ comment[0] }}:</b> {{ comment[1] }} </p>
+            {% endfor %}
+        </div>
+
+        <br>
+        <p><b>Leave a comment for this update</b></p>
+        <form action="/comment" method="POST">
+            <!-- <input type="hidden" id="update_id" name="update_id" value="test"> -->
+            <input type="text" name="update_id" id="update_id" value="{{ u.id }}" style="display:none">
+            <label>Name</label>
+            <input type="text" id="author" name="author" style="border-radius: 3px; border:none">
+            <label>Comment</label>
+            <input type="text" id="comment" name="comment" style="border-radius: 3px; border:none">
+            <button type="submit " class="btn btn-dark">Submit</button>
+        </form>
+          <hr>
+    {% endfor %}
+        
+    </div>
+
+{% endblock %}
